@@ -1,0 +1,140 @@
+.navbar{
+  margin: 10px auto;
+
+/*上下線*/
+background: url('../images/dashline.png') repeat-x scroll center bottom,
+url('../images/dashline.png') repeat-x scroll center top transparent;
+  /*padding: 5px 0;*/
+padding-top: 5px;
+  width: 98%;
+
+}
+
+.navbar ul{
+
+  display: inline-block;
+  /*margin:0 20px;*/
+
+}
+.navbar ul li{
+  float: left;/*讓選單是一個接著一個橫向拓展*/
+  position: relative;/*接下來要有下拉選單，讓定位點有參考*/
+  list-style: none;
+  /*margin: 0px !important;*/
+  /*display: block;*/
+  z-index: 99999;
+  /*項目分隔線*/
+    background: url('../images/menu-sep.png') no-repeat left center;
+
+}
+
+.navbar li:first-child {
+    background-image: none;
+}
+
+
+.navbar li a{
+  padding: 5px 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: block;/*讓除了字以外在範圍內都可以有連結的效果*/
+}
+
+
+
+
+/* 特定在第一層 > 第二層之後下拉部分之樣式 */
+/*第二層預設隱藏*/
+.navbar ul li ul{
+    display: none;
+    /*第二層下拉樣式*/
+    position: absolute;
+    left: 0;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    border: 1px solid #D9D9D9;
+}
+
+/* 當第一層選單被觸發時，指定第二層顯示 */
+.navbar ul li:hover > ul{
+    display: block;
+    margin: 0px;
+
+}
+
+/*第二層選單項目*/
+.navbar ul li ul li{
+   /*background: none;*/
+   /*border-bottom:  1px solid #D9D9D9;*/
+   border-bottom: 1px dashed #DBD8D8;
+   float:none;/*讓底線可以正常寬度*/
+   background: none repeat scroll 0% 0% #FFF;
+
+   /*padding: 0px;*/
+
+
+}
+
+/*選單第二層移過連結顏色*/
+/*.navbar ul li ul li a:hover{
+  background: #FFF;
+  color:#EC5515;
+}*/
+
+
+.navbar ul li ul li:last-child{
+ border-bottom: none;
+
+}
+
+
+.navbar ul li ul li a{
+
+  width: 100px;
+  /*display: block;*/
+  height: auto;
+  line-height: 1.75em;
+  text-align: left;
+  position: relative;
+  /*margin: 0px;*/
+  /*color:red;*/
+  /*background: none repeat scroll 0% 0% #FFF;*/
+  background: none repeat scroll 0% 0% #FFF;
+   /*border: 1px solid red;*/
+
+}
+
+
+
+
+/* 第三層之後，上一層的選單觸發則顯示出來（皆為橫向拓展） */
+.navbar ul ul li:hover > ul{
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 100%;
+    /*margin-bottom:10px;*/
+}
+
+/* 箭頭向下 */
+.arrow-bottom {
+    display: inline-block;
+    margin-left: 5px;
+    border-top: 4px solid #E85A06;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    width: 1px;
+    height: 1px;
+}
+/* 箭頭向右 */
+.arrow-right {
+    display: inline-block;
+    margin-left: 12px;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid #666;
+    width: 1px;
+    height: 1px;
+}
+
+

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="<{$xoops_langcode}>">
+  <head>
+    <{assign var=theme_name value=$xoTheme->folderName}>
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/get_var.html"}>
+    <meta charset="utf-8">
+    <title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+
+    <link rel="stylesheet" type="text/css" media="all"  href="<{xoImgUrl css/xoops.css}>" />
+    <link rel="stylesheet" type="text/css" media="all"  href="<{xoAppUrl modules/tadtools/bootstrap/css/bootstrap.min.css}>" />
+
+    <link rel="stylesheet" type="text/css" media="all"  href="<{xoAppUrl modules/mktools/font-awesome/css/font-awesome.css}>" />
+    <link rel="stylesheet" type="text/css" media="all"  href="<{xoImgUrl css/style.css}>" />
+    <link rel="stylesheet" type="text/css" media="all"  href="<{xoImgUrl css/navbar.css}>" />
+    <link rel="stylesheet" type="text/css" media="all"  href="<{xoImgUrl css/slider.css}>" />
+
+    <script type='text/javascript'>
+        if (typeof jQuery == 'undefined') {
+            document.write("<script type='text/javascript' src='<{xoAppUrl modules/tadtools/jquery/jquery.js}>'><\/script>");
+        }
+    </script>
+    <script type="text/javascript" src="<{xoImgUrl js/jquery.easing.1.3.js}>"></script>
+    <script type="text/javascript" src="<{xoImgUrl js/jquery.CarouSlide.min.js}>"></script>
+
+    <script type='text/javascript'>
+      $(function(){
+
+      // 移在第二層項目時,讓該第一層的項目加上樣式(呈現背景反白)
+      $( ".sub" ).children().hover(
+        function() {
+          $(this ).parent().parent().children().addClass("selected");
+        }, function() {
+          $( this ).parent().parent().children().removeClass("selected");
+        }
+      );
+      // 滑動圖片
+      $(".s1").CarouSlide({
+       animType:"slide-vertical",
+                  autoAnim:true,
+                  slideTime:3000,
+                  animTime:1000,
+                  alwaysNext:true
+      });
+
+      //選單箭頭
+      // $(".navbar > ul > li:has(ul) > a").append('<div class="arrow-bottom"></div>');
+      $(".navbar > ul > li ul li:has(ul) > a").append('<div class="arrow-right"></div>');
+      //區塊標題加入向下箭頭和樣式(於xoops.css設定顏色和位置)
+      $(".blockTitle").append('<i class="fa fa-caret-down sidebar-arrow-down"></i>');
+    })
+    </script>
+
+    <!-- customized header contents -->
+    <{$xoops_module_header}>
+
+
+    <style>
+      <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/theme_css_blocks.html"}>
+
+      body{
+        /*background-color: #1E73BE;*/
+        /*background-image: url('<{xoImgUrl images/bg.png}>');*/
+        background-color:<{$bg_color}>;
+        background-image: url('<{$bg_img}>');
+        background-repeat: repeat;
+        background-position: left top;
+        background-attachment: fixed;
+      }
+
+      .wrapper{
+        margin: 0 auto;
+        width: <{$theme_width}>px;
+        background-color: <{$base_color}>;
+      }
+
+
+
+      #header a{
+        font-size: 28px;
+        width: <{$theme_width}>px;
+        margin: 20px auto;
+        font-weight: bold;
+        color:#615F5F;
+
+      }
+
+
+
+      .topinfobar{
+        width: <{$theme_width}>px;
+        /*margin: 0 auto;*/
+        background-color:<{$top_infobar_bgcolor}>;
+
+        /*color:#fff;*/
+        /*color:transparent;*/
+      }
+
+      #header{
+        background:url(<{$header_img}>) no-repeat;
+        /*background-color: transparent;*/
+        /*background: transparent;*/
+
+      }
+
+      .navbar li a.selected,.navbar li a:hover {
+        /*background-color: #EC5515;*/
+        background-color: <{$navbar_color_hover}>;
+        color:<{$navbar_color}>;
+      }
+
+      /*選單第二層移過連結顏色*/
+      .navbar ul li ul li a:hover{
+        /*background-color:rgba(255, 255, 255, 0.4);*/
+      }
+
+      /*選單第二層移過項目*/
+      .navbar ul li ul li:hover{
+        border: none;
+      }
+
+
+
+      /*區塊標題*/
+      div.blockTitle{
+        border-bottom: 2px solid <{$bt_sepline_color}>;
+
+        position: relative;/*搭配向下箭頭位置*/
+      }
+
+      /*區塊標題的向下箭頭*/
+      div.blockTitle .sidebar-arrow-down{
+        position: absolute;
+        left: 23px;
+        bottom: -13px;
+        color: <{$bt_sepline_color}>;
+      }
+
+
+      /*xoops主選單,目前所在項目*/
+      div#mainmenu a.maincurrent{
+       color:<{$header_bgcolor}>;
+      }
+
+      div#mainmenu a.menuMain:hover{
+       color:#08C;;
+       transform: translateX(15px);
+       /*chrome*/
+       -webkit-transform: translateX(15px);
+       margin-right: 15px;
+      }
+
+
+      .slider-wrapper , .s1 .slider-wrapper , div.slider , .slider-holder li a img {
+        <{if $slide_width}>width:<{$slide_width}>px;<{/if}>
+        <{if $slide_height}>height:<{$slide_height}>px;<{/if}>
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+
+
+    <div class="wrapper">
+
+      <!-- 頁首 -->
+      <div class="topinfobar">
+        <div class="row">
+
+          <div class="span2">
+            <!-- 社群網站連結 -->
+            <ul class="social_logos">
+              <li>
+                <a href="<{$facebook_url}>" target="_blank"><span class="fa fa-facebook"></span></a>
+              </li>
+              <li>
+                <a href="<{$twitter_url}>" target="_blank"><span class="fa fa-twitter"></span></a>
+              </li>
+              <li>
+                <a href="<{$google_url}>" target="_blank"><span class="fa fa-google-plus"></span></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="span6">
+            <span class="info"><{$top_infobar_text}></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 標題 -->
+      <!-- logo -->
+      <{includeq file="$theme_name/tpl/logo.html"}>
+
+      <!-- 導覽列 -->
+      <!-- $menu_var這個變數，從get_var.html來的 -->
+      <div class="navbar">
+        <ul>
+          <{foreach from=$menu_var item=menu}>
+            <li>
+              <a href="<{$menu.url}>"><{$menu.title}></a>
+              <!-- 第二層 -->
+              <{if $menu.submenu}>
+                <ul class="sub">
+                  <{foreach from=$menu.submenu item=menu2}>
+                  <li>
+                    <a href="<{$menu2.url}>"><{$menu2.title}></a>
+                    <!-- 第三層 -->
+                    <{if $menu2.submenu}>
+                      <ul>
+                        <{foreach from=$menu2.submenu item=menu3}>
+                          <li>
+                            <a href="<{$menu3.url}>"><{$menu3.title}></a>
+                          </li>
+                        <{/foreach}>
+                      </ul>
+                    <{/if}>
+                  </li>
+                  <{/foreach}>
+                </ul>
+              <{/if}>
+            </li>
+          <{/foreach}>
+
+        </ul>
+      </div>
+
+      <{if $slide_width}>
+        <!-- 滑動圖片 -->
+        <div class="CarouSlide slider s1">
+          <ul class="slider-holder">
+            <{foreach from=$slider_var item=slide}>
+              <li id="a<{$slide.sort}>">
+                <a href="#">
+                  <img src="<{$slide.file_url}>" />
+                </a>
+              </li>
+            <{/foreach}>
+          </ul>
+          <ul class="slider-nav">
+            <{foreach from=$slider_var item=slide}>
+              <li>
+                <a href="#a<{$slide.sort}>">
+                  <{$slide.text_description|substr:0:30}><i class="fa fa-caret-left slider-arrow-left"></i>
+                </a>
+              </li>
+            <{/foreach}>
+          </ul>
+        </div>
+        <!-- 滑動圖片區下方陰影 -->
+        <div class="slider_shadow"></div>
+      <{/if}>
+
+
+      <!-- 內容 -->
+      <div class="main">
+        <div id="xoops_theme_content">
+          <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/$theme_type.html"}>
+        </div>
+      </div>
+
+      <!-- 頁尾 -->
+      <div id="footer">
+        <div id="copyright">
+          <{$xoops_footer}>
+        </div>
+      </div>
+
+    </div><!-- end wrapper -->
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/my_js.html"}>
+
+
+    <!-- 顯示參數，開發用，開發完可刪除 -->
+    <{if $show_var=='1'}>
+      <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/show_var.html"}>
+    <{/if}>
+
+  </body>
+</html>
