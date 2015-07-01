@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html lang="<{$xoops_langcode}>">
   <head>
+    <!--目前$_SESSION['bootstrap']="<{php}>echo $_SESSION['bootstrap'];<{/php}>"; -->
+    <!--將目前的資料夾名稱，設定為樣板標籤變數 theme_name-->
     <{assign var=theme_name value=$xoTheme->folderName}>
+
+    <!--載入由使用者設定的各項佈景變數-->
     <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/get_var.html"}>
-    <meta charset="utf-8">
+
+    <{if $theme_color|substr:0:10=="bootstrap3"}>
+        <{assign var=tpl_folder value="themes3_tpl"}>
+        <{assign var=row value="row"}>
+        <{assign var=span value="col-md-"}>
+    <{else}>
+        <{assign var=tpl_folder value="themes_tpl"}>
+        <{assign var=row value="row-fluid"}>
+        <{assign var=span value="span"}>
+    <{/if}>
+
+    <!--$tpl_folder="<{$tpl_folder}> -->
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/meta.html"}>
+
+    <!-- 網站的標題及標語 -->
     <title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
 
-    <link rel="stylesheet" type="text/css" media="all"  href="<{xoImgUrl css/xoops.css}>" />
-    <link rel="stylesheet" type="text/css" media="all"  href="<{xoAppUrl modules/tadtools/bootstrap/css/bootstrap.min.css}>" />
+    <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/link_css.html"}>
 
-    <link rel="stylesheet" type="text/css" media="all"  href="<{xoAppUrl modules/mktools/font-awesome/css/font-awesome.css}>" />
+    <!-- 給模組套用的樣板標籤 -->
+    <{$xoops_module_header}>
+
     <link rel="stylesheet" type="text/css" media="all"  href="<{xoImgUrl css/style.css}>" />
     <link rel="stylesheet" type="text/css" media="all"  href="<{xoImgUrl css/navbar.css}>" />
     <link rel="stylesheet" type="text/css" media="all"  href="<{xoImgUrl css/slider.css}>" />
 
-    <script type='text/javascript'>
-        if (typeof jQuery == 'undefined') {
-            document.write("<script type='text/javascript' src='<{xoAppUrl modules/tadtools/jquery/jquery.js}>'><\/script>");
-        }
-    </script>
+    <style type="text/css">
+      body{
+        font-family: <{$font_family}>;
+        <{if $background_cover}>
+          background-size: cover;
+        <{/if}>
+      }
+    </style>
     <script type="text/javascript" src="<{xoImgUrl js/jquery.easing.1.3.js}>"></script>
     <script type="text/javascript" src="<{xoImgUrl js/jquery.CarouSlide.min.js}>"></script>
 
@@ -50,17 +72,10 @@
     })
     </script>
 
-    <!-- customized header contents -->
-    <{$xoops_module_header}>
-
 
     <style>
-      <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/theme_css_blocks.html"}>
-
       body{
-        /*background-color: #1E73BE;*/
-        /*background-image: url('<{xoImgUrl images/bg.png}>');*/
-        background-color:<{$bg_color}>;
+        background-color: <{$bg_color}>;
         background-image: url('<{$bg_img}>');
         background-repeat: repeat;
         background-position: left top;
@@ -161,15 +176,12 @@
 
   <body>
 
-
-
     <div class="wrapper">
-
       <!-- 頁首 -->
       <div class="topinfobar">
-        <div class="row">
+        <div class="<{$row}>">
 
-          <div class="span2">
+          <div class="<{$span}>2">
             <!-- 社群網站連結 -->
             <ul class="social_logos">
               <li>
@@ -184,7 +196,7 @@
             </ul>
           </div>
 
-          <div class="span6">
+          <div class="<{$span}>6">
             <span class="info"><{$top_infobar_text}></span>
           </div>
         </div>
@@ -233,8 +245,8 @@
           <ul class="slider-holder">
             <{foreach from=$slider_var item=slide}>
               <li id="a<{$slide.sort}>">
-                <a href="#">
-                  <img src="<{$slide.file_url}>" />
+                <a href="<{$slide.slide_url}>">
+                  <img src="<{$slide.file_url}>" alt="<{$slide.text_description}>"  title="<{$slide.text_description}>">
                 </a>
               </li>
             <{/foreach}>
@@ -268,14 +280,19 @@
         </div>
       </div>
 
-    </div><!-- end wrapper -->
-    <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/my_js.html"}>
+    </div>
 
+    <!-- 載入 BootStrap所需的javascript -->
+    <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/bootstrap_js.html"}>
 
-    <!-- 顯示參數，開發用，開發完可刪除 -->
-    <{if $show_var=='1'}>
-      <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/show_var.html"}>
+    <!-- 載入自訂的javascript -->
+    <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/my_js.html"}>
+
+    <!-- 是否顯示樣板變數資訊 -->
+    <{if $show_var==1}>
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/show_var.html"}>
     <{/if}>
+
 
   </body>
 </html>

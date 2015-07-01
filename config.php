@@ -12,7 +12,7 @@ $theme_kind_arr = 'mix';
 $menu_var_kind = 'all';
 
 //額外顏色設定 如： bootstrap3/themes/light/Cerulean
-$theme_color = '';
+$theme_color = 'bootstrap';
 
 /*
 tabs-1 版面基礎設定
@@ -78,7 +78,7 @@ $config_tabs[2] = 1;
 $config_enable['bg_img'] = array('enable' => '1', 'min' => '', 'max' => '', 'require' => '0', 'default' => 'bg.png');
 
 //背景顏色[theme_css.html]
-$config_enable['bg_color'] = array('enable' => '1', 'min' => '', 'max' => '', 'require' => '0', 'default' => '#1E73BE');
+$config_enable['bg_color'] = array('enable' => '1', 'min' => '', 'max' => '', 'require' => '0', 'default' => '#DED2C6');
 
 //背景重複[theme_css.html]，值： repeat （重複）, repeat-x （水平重複）, repeat-y （垂直重複）, no-repeat （不重複）
 $config_enable['bg_repeat'] = array('enable' => '0', 'min' => '', 'max' => '', 'require' => '0', 'default' => 'repeat');
