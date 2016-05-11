@@ -8,23 +8,12 @@
     <!--載入由使用者設定的各項佈景變數-->
     <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/get_var.html"}>
 
-    <{if $theme_color|substr:0:10=="bootstrap3"}>
-        <{assign var=tpl_folder value="themes3_tpl"}>
-        <{assign var=row value="row"}>
-        <{assign var=span value="col-md-"}>
-    <{else}>
-        <{assign var=tpl_folder value="themes_tpl"}>
-        <{assign var=row value="row-fluid"}>
-        <{assign var=span value="span"}>
-    <{/if}>
-
-    <!--$tpl_folder="<{$tpl_folder}> -->
     <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/meta.html"}>
 
     <!-- 網站的標題及標語 -->
     <title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
 
-    <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/link_css.html"}>
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes3_tpl/link_css.html"}>
 
     <!-- 給模組套用的樣板標籤 -->
     <{$xoops_module_header}>
@@ -157,7 +146,7 @@
       }
 
       div#mainmenu a.menuMain:hover{
-       color:#08C;;
+       color:#08C;
        transform: translateX(15px);
        /*chrome*/
        -webkit-transform: translateX(15px);
@@ -179,24 +168,30 @@
     <div class="wrapper">
       <!-- 頁首 -->
       <div class="topinfobar">
-        <div class="<{$row}>">
+        <div class="row">
 
-          <div class="<{$span}>2">
+          <div class="col-sm-2 col-md-2">
             <!-- 社群網站連結 -->
             <ul class="social_logos">
-              <li>
-                <a href="<{$facebook_url}>" target="_blank"><span class="fa fa-facebook"></span></a>
-              </li>
+              <{if $facebook_url}>
+                <li>
+                  <a href="<{$facebook_url}>" target="_blank"><span class="fa fa-facebook"></span></a>
+                </li>
+              <{/if}>
+              <{if $twitter_url}>
               <li>
                 <a href="<{$twitter_url}>" target="_blank"><span class="fa fa-twitter"></span></a>
               </li>
+              <{/if}>
+              <{if $google_url}>
               <li>
                 <a href="<{$google_url}>" target="_blank"><span class="fa fa-google-plus"></span></a>
               </li>
+              <{/if}>
             </ul>
           </div>
 
-          <div class="<{$span}>6">
+          <div class="col-sm-6 col-md-6">
             <span class="info"><{$top_infobar_text}></span>
           </div>
         </div>
@@ -207,37 +202,7 @@
       <{includeq file="$theme_name/tpl/logo.html"}>
 
       <!-- 導覽列 -->
-      <!-- $menu_var這個變數，從get_var.html來的 -->
-      <div class="navbar">
-        <ul>
-          <{foreach from=$menu_var item=menu}>
-            <li>
-              <a href="<{$menu.url}>"><{$menu.title}></a>
-              <!-- 第二層 -->
-              <{if $menu.submenu}>
-                <ul class="sub">
-                  <{foreach from=$menu.submenu item=menu2}>
-                  <li>
-                    <a href="<{$menu2.url}>"><{$menu2.title}></a>
-                    <!-- 第三層 -->
-                    <{if $menu2.submenu}>
-                      <ul>
-                        <{foreach from=$menu2.submenu item=menu3}>
-                          <li>
-                            <a href="<{$menu3.url}>"><{$menu3.title}></a>
-                          </li>
-                        <{/foreach}>
-                      </ul>
-                    <{/if}>
-                  </li>
-                  <{/foreach}>
-                </ul>
-              <{/if}>
-            </li>
-          <{/foreach}>
-
-        </ul>
-      </div>
+      <{includeq file="$xoops_rootpath/modules/tadtools/themes3_tpl/menu/cssmenu/menu.html"}>
 
       <{if $slide_width}>
         <!-- 滑動圖片 -->
@@ -269,7 +234,7 @@
       <!-- 內容 -->
       <div class="main">
         <div id="xoops_theme_content">
-          <{includeq file="$xoops_rootpath/modules/tadtools/themes_tpl/$theme_type.html"}>
+          <{includeq file="$xoops_rootpath/modules/tadtools/themes3_tpl/$theme_type.html"}>
         </div>
       </div>
 
@@ -283,16 +248,15 @@
     </div>
 
     <!-- 載入 BootStrap所需的javascript -->
-    <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/bootstrap_js.html"}>
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes3_tpl/bootstrap_js.html"}>
 
     <!-- 載入自訂的javascript -->
-    <{includeq file="$xoops_rootpath/modules/tadtools/$tpl_folder/my_js.html"}>
+    <{includeq file="$xoops_rootpath/modules/tadtools/themes3_tpl/my_js.html"}>
 
     <!-- 是否顯示樣板變數資訊 -->
     <{if $show_var==1}>
-    <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/show_var.html"}>
+      <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/show_var.html"}>
     <{/if}>
-
 
   </body>
 </html>
