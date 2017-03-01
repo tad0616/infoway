@@ -17,10 +17,6 @@
 
     <!-- 給模組套用的樣板標籤 -->
     <{$xoops_module_header}>
-    <script src="<{$xoops_url}>/browse.php?Frameworks/jquery/jquery.js" type="text/javascript"></script>
-    <script src="<{$xoops_url}>/modules/tadtools/jquery/jquery-migrate.min.js" type="text/javascript"></script>
-    <script src="<{$xoops_url}>/modules/tadtools/jquery/ui/jquery-ui.js" type="text/javascript"></script>
-    <script src="<{$xoops_url}>/modules/tadtools/fancyBox/lib/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script>
 
     <link rel="stylesheet" type="text/css" media="all"  href="<{xoImgUrl css/style.css}>" />
     <link rel="stylesheet" type="text/css" media="all"  href="<{xoImgUrl css/navbar.css}>" />
@@ -174,7 +170,7 @@
       <div class="topinfobar">
         <div class="row">
 
-          <div class="col-sm-2 col-sm-2">
+          <div class="col-sm-2 col-md-2">
             <!-- 社群網站連結 -->
             <ul class="social_logos">
               <{if $facebook_url}>
@@ -195,7 +191,7 @@
             </ul>
           </div>
 
-          <div class="col-sm-6 col-sm-6">
+          <div class="col-sm-6 col-md-6">
             <span class="info"><{$top_infobar_text}></span>
           </div>
         </div>
@@ -238,18 +234,20 @@
       <!-- 內容 -->
       <div class="main">
         <div id="xoops_theme_content">
-          <!-- 載入布局 -->
-          <div class="row">
-              <div class="col-sm-12">
-                  <{includeq file="$xoops_rootpath/modules/tadtools/themes3_tpl/siteclosed_login.tpl"}>
-              </div>
-          </div>
+          <{includeq file="$xoops_rootpath/modules/tadtools/themes3_tpl/$theme_type.tpl"}>
         </div>
       </div>
 
       <!-- 頁尾 -->
       <div id="footer">
         <div id="copyright">
+          <div class="row">
+            <div class="col-md-12">
+            <{if $xoops_isadmin}>
+              <a href="<{$xoops_url}>/modules/system/admin.php?fct=preferences&op=show&confcat_id=3" class="block_config"></a>
+            <{/if}>
+            </div>
+          </div>
           <{$xoops_footer}>
         </div>
       </div>
