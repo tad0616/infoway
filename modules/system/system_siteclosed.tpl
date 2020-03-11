@@ -84,7 +84,7 @@
 
 
       #header a{
-        font-size: 28px;
+        font-size: 1.75em;
         width: <{$theme_width}>px;
         margin: 20px auto;
         font-weight: bold;
@@ -206,7 +206,7 @@
       <{includeq file="$theme_name/tpl/logo.tpl"}>
 
       <!-- 導覽列 -->
-      <{includeq file="$xoops_rootpath/modules/tadtools/themes3_tpl/menu/cssmenu/menu.tpl"}>
+      <{includeq file="$xoops_rootpath/modules/tadtools/themes_common/menu/cssmenu/menu.tpl"}>
 
       <{if $slide_width}>
         <!-- 滑動圖片 -->

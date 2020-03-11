@@ -2,33 +2,24 @@ a:hover{
   text-decoration: none;
 }
 
-
-
-
 .topinfobar span.info{
   color: #FEFEFE;
   display: block;
   margin-top: 15px;
-  font-size: 14px;
+  font-size: 0.875em;
   line-height: 14px;
   text-align: center;
 }
-
-
 
 .title{
   margin: 20px 20px;
 }
 
 .subtitle{
-  font-size: 14px;
+  font-size: 0.875em;
   font-weight: normal;
   margin: 20px 20px;
 }
-
-
-
-
 
 .social_logos li {
     margin: 0px 8px 0px 0px;
@@ -64,7 +55,6 @@ ul.social_logos {
     list-style: none outside none;
 }
 
-
 .sidebar{
   margin-left: 60px;
 }
@@ -74,17 +64,12 @@ border-bottom: 2px solid #E85A06;
 margin-top: 30px;
 margin-bottom: 22px;
 padding-bottom: 9px;
-font-size: 20px;
+font-size: 1.25em;
 position: relative;/*搭配向下箭頭位置*/
 /*margin-left: 40px;*/
 /*padding: 0px;*/
 color: #585858;
 }
-
-
-
-
-
 
 /*向下箭頭*/
 .sidebar h3 .sidebar-arrow-down {
@@ -94,18 +79,11 @@ color: #585858;
     color: #E85A06;
 }
 
-
 .navbar ul li a{
   color:#615F5F;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 0.875em;
 }
-
-
-
-
-
-
 
 ul li{
   list-style: none;
@@ -133,14 +111,11 @@ ul li{
  margin-right: 15px;
 }
 
-
-
-
 .sidebar-arrow{
   position: absolute;
   left:0px;
   top: 10px;
-  font-size: 12px;
+  font-size: 1em;
 
 }
 
@@ -148,12 +123,6 @@ ul{
   margin: 0;
   padding: 0;
 }
-
-
-
-
-
-
 
 #copyright{
       margin-top: 40px;
@@ -169,8 +138,6 @@ ul{
   margin: 0 30px;
 }
 
-
-
 /*主選單第一層項目*/
 div#mainmenu a.menuMain{
   color: #2C2C2C;
@@ -183,7 +150,6 @@ div#mainmenu a.menuMain{
 
 }
 
-
 /*主選單第二層項目*/
 div#mainmenu a.menuSub{
  /*color:#EC5515;*/
@@ -191,8 +157,6 @@ div#mainmenu a.menuSub{
  display: block;
 
 }
-
-
 
 /*div.blockTitle::after {content:"<i class='fa fa-angle-down'></i>"; color:blue;}*/
 
